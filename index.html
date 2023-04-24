@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        html{
+            scroll-behavior:smooth;
+        }
+        body{
+            display: grid;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        h1{
+            font-family: Arial, Helvetica, sans-serif;
+            font-style: normal;
+        }
+        a{
+            text-decoration: none;
+            cursor: pointer;
+            color: black;
+        }
+        .nav-bar a:hover{
+            color:rgb(24, 190, 196);
+            text-shadow: 1px 1px 1px black;
+        }
+        li{
+            list-style: none;
+            text-transform: capitalize;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.2rem;
+            font-weight: normal;
+            font-style: normal;
+            line-height: 150%;
+            color: rgb(37, 35, 35);
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+        li:hover{
+            background-color: rgb(239, 246, 246);
+            border-radius: 0.5rem;
+            color:rgb(24, 190, 196);
+            text-shadow: 1px 1px 1px black;
+        }
+        p{
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 1rem;
+            font-weight: normal;
+            font-style: normal;
+            line-height: 150%;
+            color: rgb(100, 99, 99);
+            margin: 0.8rem 0rem;
+            text-align: justify;
+            word-wrap: break-word;
+        }
+        .reg-btn{
+            border: 3px solid black;
+            margin-right: 0.5rem;
+            text-shadow: 1px 1px 1px black;
+            outline: none;
+            font-size: 1.3rem;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: bold;
+            font-style: normal;
+            line-height: 75%;
+            border-radius: 1rem;
+            padding: 0.7rem 1.7rem;
+            cursor: pointer;
+            text-transform:uppercase;
+            color: aqua;
+            background-color:transparent;
+            transition: all 0.3s;
+        }
+        .reg-btn:hover{
+            color: whitesmoke;
+            background-color: aqua;
+        }
+        .main-container{
+            border: 1px solid black;
+            width: 100%;
+            max-width: 160rem;
+            margin-top: 0px;
+            margin: auto;
+            position: relative;
+            z-index: 10;
+            /*background: linear-gradient(180deg, #FFC0CB 50%, #00FFFF 50%);*/
+        }
+        .nav-bar{
+            width: 100%;
+            padding: 0.5rem 3rem;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            z-index: 12;
+            top: 0px;
+            transition: all 0.5s;
+        }
+        .left-section-navbar img{
+            width: 8rem;
+        }
+        .middle-section-navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 50%;
+        }
+        .middle-section-navbar ul{
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .section1{
+            width: 100%;
+            min-height: 47rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 2rem;
+            background-color: #05cefb;
+            transition: all 2s;
+        }
+       
+        .col{
+            flex-basis: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap:1rem;
+        }
+        .col img{
+            border-radius: 1rem; 
+        }
+      .heading-line{
+        text-transform: uppercase;
+        border: 4px solid white;
+        padding: 0.5rem;
+        text-shadow: 3px 3px 4px black;
+        color: white;
+        font-size: 5rem;
+      }
+      h3{
+        font-family:Arial, Helvetica, sans-serif;
+        color: white;
+        font-size: 2rem;
+      }
+      #section1-btn{
+        background-color: rgb(69, 69, 247);
+        padding: 1rem;
+        color: white;
+        font-size: 1.5rem;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .active-section1{
+            background-color:#032c44;
+        }
+      .active-navbar{
+            background-color: black;
+      }
+      .active-navbar a{
+        color: white;
+      }
+      .active-navbar a:hover{
+        color: rgb(35, 210, 210); 
+      }
+      .section{
+        width: 100%;
+        min-height: 47rem;
+        background: linear-gradient(-45deg, #0d4350, #011114);
+      }
+      .section2{
+        width: 100%;
+        height: 100%;
+        display: grid;
+        padding: 4rem 2rem;
+        column-gap: 2rem;
+        grid-template-columns: repeat(auto-fit ,minmax(300px,1fr));
+        grid-template-rows: repeat(auto-fit);
+        row-gap: 2rem;
+      }
+      .section3{
+        width: 100%;
+        height: 47rem;
+        background-color: rgb(196, 32, 237);
+        display: flex;
+      }
+      .section4{
+        width: 100%;
+        min-height: 47rem;
+        background-color: rgb(237, 32, 97);
+        display: flex;
+      }
+      .section5{
+        width: 100%;
+        height: 47rem;
+        background-color: rgb(237, 114, 32);
+        display: flex;
+      }
+      .card{
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        align-items: center;
+        border-radius: 1rem;
+        border: 2px solid black;
+        background-color: rgb(211, 233, 254);
+        cursor: pointer;
+        transition: transform 0.5s;
+      }
+      .card-img{
+        width: 100%;
+        height: 250px;
+        border-radius: 1rem;
+      }
+      .card-img img{
+        width: 100%;
+        height: 100%;
+        border-radius: 1rem 1rem 0 0;
+      }
+      .card h4{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 2rem;
+        margin-top: 1rem;
+        text-transform: capitalize;
+      }
+      p{
+        cursor: pointer;
+        font-size: 1.2rem;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        padding: 0 4px;
+      }
+      .card p:hover{
+        color:black;
+      }
+      .card:hover{
+        transform: translateY(-7px);
+        border: 1px solid rgb(85, 222, 246);
+        box-shadow: 5px 5px 5px rgb(85, 222, 246);
+        background-color: #05cefb;
+        color: black;
+      }
+      .section h1{
+        text-transform: capitalize;
+            font-size: 2rem;
+            width: 70%;
+            color: aliceblue;
+            padding-top: 2rem;
+            padding-left: 2rem;
+      }
+      .active-col{
+        color: #05cefb;
+        border-color: aqua;
+      }
+      .card-btn{
+        text-transform: uppercase;
+        margin: 0.5rem 0;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+        background-color: rgb(11, 183, 11);
+        border: 1px solid rgb(11,183,11);
+        border-radius: 0.5rem;
+      }
+      .card-btn:hover{
+        border: 1px solid rgb(56, 248, 56);;
+        background-color: rgb(56, 248, 56);
+        box-shadow: 1px 1px 1px rgb(56, 248, 56);;
+      }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+
+        <div class="nav-bar">
+            <div class="left-section-navbar">
+                <img src="/web app store-logos_black.png" alt="" id="logo">
+                <h1></h1>
+            </div>
+            <div class="middle-section-navbar">
+                <ul>
+                    <li><a href="#section1">home</a></li>
+                    <li><a href="#section">apps</a></li>
+                    <li><a href="#section3">games</a></li>
+                    <li><a href="#section4">books</a></li>
+                    <li><a href="#section5">developer</a></li>
+                </ul>
+            </div>
+            <div class="right-secton-navbar">
+                <button class="reg-btn">login</button>
+                <button class="reg-btn">sign-in</button>
+            </div>
+        </div>
+
+        <a name="section1"></a>
+
+        <div class="section1">
+            <div class="col">
+                <h1 class="heading-line">web app store</h1>
+                <h3 class="heading-line2">Multiple apps one platform</h3>
+                <button id="section1-btn">Explore Now</button>
+            </div>
+            <div class="col">
+                <img src="https://anikateagrawal.github.io/Mini-Project/images/5-500x500.png" alt="">
+            </div>
+        </div>
+
+        <a name="section"></a>
+
+        <div class="section" >
+
+            <h1>our top recommended apps</h1>
+
+            <div class="section2">
+
+                <div class="card">
+
+                    <div class="card-img">
+                    <img src="/weatherLogo.jpg" alt="">
+                    </div>
+
+                    <h4>weather app</h4>
+
+                    <a href="/weather.html" target="_blank"><p>Want to know wheather of different countries?Click me</p></a>
+
+                    <button class="card-btn" type="button" data-download="weather.html">download</button>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-img">
+                    <img src="/calculatorLogo.png" alt="">
+                    </div>
+
+                    <h4>calculator app</h4>
+
+                    <a href="/calculator.html" target="_blank"><p>Having problem in calculation?Click me</p></a>
+                    <button class="card-btn" type="button" data-download="calculator.html">download</button>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-img">
+                    <img src="/unitconvertorLogo.png" alt="">
+                    </div>
+
+                    <h4>unit convetor</h4>
+
+                    <a href="/unitConvertor.html"><p>I can convert different units for you?Click me</p></a>
+                    <button class="card-btn" type="button" data-download="unitConvertor.html">download</button>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-img">
+                    <img src="/clockLogo.jpg" alt="">
+                    </div>
+
+                    <h4>clock app</h4>
+
+                    <p>what's time in other countries? here you can see</p>
+                    <button class="card-btn" type="button" data-download="clock.html">download</button>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-img">
+                    <img src="/todoListLogo.png" alt="">
+                    </div>
+
+                    <h4>ToDo list</h4>
+
+                    <p>Want to know wheather of other countries?Click me</p>
+                    <button class="card-btn" type="button" data-download="todolist.html">download</button>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-img">
+                    <img src="/AgevalidationLogo.jpg" alt="">
+                    </div>
+
+                    <h4>age validation
+                    </h4>
+
+                    <a href="/ht.html"><p>Are you eligible for voting and driving? Verify your age</p></a>
+                    <button class="card-btn" type="button" data-download="agevalidation.html">download</button>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-img">
+                    <img src="/covidlogo.png" alt="">
+                    </div>
+
+                    <h4>Covid app</h4>
+
+                    <p>Is your area is safe from covid? check here</p>
+                    <button class="card-btn" type="button" data-download="coid.html">download</button>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="card-img">
+                    <img src="/quizlog.jpg" alt="">
+                    </div>
+
+                    <h4>Quiz app</h4>
+
+                    <p>Want to know wheather?Click me</p>
+                    <button class="card-btn" type="button" data-download="">download</button>
+
+                </div>
+
+            </div>
+        </div>
+
+        <a name="section3"></a>
+
+        <div class="section3">
+            
+        </div>
+
+        <a name="section4"></a>
+
+        <div class="section4">
+
+        </div>
+
+        <a name="section5"></a>
+
+        <div class="section5">
+            
+        </div>
+
+    </div>
+
+    <script>
+        let res = document.querySelector('.nav-bar');
+        let img = document.getElementById('logo');
+        let sec = document.querySelector('.section1');
+        let head = document.querySelector('.heading-line');
+        let head2 = document.querySelector('.heading-line2');
+        window.addEventListener('scroll',()=>{
+         if(window.scrollY>100){
+             res.classList.add('active-navbar');
+             img.src='/webappstorelogo.png';
+             sec.classList.add('active-section1');
+             head.classList.add('active-col');
+             head2.classList.add('active-col');
+         }
+         else{
+             res.classList.remove('active-navbar');
+             img.src='web app store-logos_black.png';
+             sec.classList.remove('active-section1');
+             head.classList.remove('active-col');
+             head2.classList.remove('active-col');
+         }
+        })
+     </script>
+
+     <script>
+        let btn = document.querySelectorAll('[data-download]');
+        btn.forEach(button=>{
+            let data = button.dataset.download;
+            let a = document.createElement('a');
+            a.href = data;
+            a.download = "";
+            a.style.display='none';
+
+            button.addEventListener('click',()=>{
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            });
+        });
+
+
+     </script>
+
+</body>
+</html>

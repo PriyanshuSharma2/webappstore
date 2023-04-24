@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .container{
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 0.5rem;
+            width: 100%;
+            max-width: 330px;
+            height: 100vh;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #7e7b7b;
+        }
+        table{
+            height: 85%;
+            width: 100%;
+            background-color: rgb(32, 31, 58);
+        }
+        td{
+            border-collapse: collapse;
+            width: 25%;
+        }
+        button{
+            width: 100%;
+            height: 100%;
+            border-radius: 50px;
+            text-align: center;
+            outline: none;
+            font-size: 3rem;
+            max-width: 5rem;
+            max-height: 5rem;
+            color: rgb(53, 228, 248);
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: aqua;
+            color:#333;
+            border: 1px solid aqua;
+            box-shadow: 2px 2px 2px aqua;
+        }
+        input{
+            width: 100%;
+            height: 100%;
+            margin-bottom: 0px;
+            color: #333;
+            text-align: right;
+            font-size: 5rem;
+        }
+        #special-button{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        #special-td{
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <td colspan="4" id="special-td"><input id="input" type="text" placeholder="0"></td>
+            </tr>
+            <tr>
+                <td><button class="button">AC</button></td>
+                <td><button class="button">C</button></td>
+                <td><button class="button">/</button></td>
+                <td><button class="button">$</button></td>
+            </tr>
+            <tr>
+                <td><button class="button">7</button></td>
+                <td><button class="button">8</button></td>
+                <td><button class="button">9</button></td>
+                <td><button class="button">+</button></td>
+            </tr>
+            <tr>
+                <td><button class="button">4</button></td>
+                <td><button class="button">5</button></td>
+                <td><button class="button">6</button></td>
+                <td><button class="button">-</button></td>
+            </tr>
+            <tr>
+                <td><button class="button">1</button></td>
+                <td><button class="button">2</button></td>
+                <td><button class="button">3</button></td>
+                <td><button class="button">*</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button class="button" id="special-button">0</button></td>
+                <td><button class="button">.</button></td>
+                <td><button class="button">=</button></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        let string ="";
+        let input = document.querySelector('#input');
+         let buttons = document.querySelectorAll('.button'); 
+         Array.from(buttons).forEach((button)=>{
+            button.addEventListener('click',(e)=>{
+                if(e.target.innerHTML=="C"){
+                    string = "";
+                    input.value = string;
+                }
+                else if(e.target.innerHTML == "="){
+                    string = eval(string);
+                    input.value = string;
+                }
+                else{
+                string = string + e.target.innerHTML;
+                input.value = string;
+                }
+            })
+         });
+    </script>
+</body>
+</html>

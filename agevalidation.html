@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide&effect=neon|outline">
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+           background-color: gold;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0px;
+            padding: 0px;
+        }
+        .conatiner{
+            border: 1px solid black;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        .verification-box{
+            border: 5px solid white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px 30px;
+            border-bottom-left-radius: 10px;
+            border-top-right-radius: 10px;
+            outline: 2px solid black;
+        }
+        .verification-box:hover{
+            background-color: rgba(0,0,0,0.6);
+            border-color: black;
+            box-shadow: 4px 4px 10px black;
+            color: white;
+            
+        }
+        .heading{
+             border: 1px solid black;
+             text-align: center;
+             padding: 30px;
+             background-color: rgba(0,0,0,0.6);
+             letter-spacing: 3px;
+        }
+        .heading h1{
+          
+            font-size: 2rem;
+            font-family: "Audiowide";
+            font-weight: 40px;
+
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+        }
+        #age{
+            padding: 5px 10px;
+            width: 300px;
+            cursor: pointer;
+        }
+        #label-text{
+            font-size: 1.5rem;
+            font-weight: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .btn{
+            outline: none;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin-top: 10px;
+            background: transparent;
+            border-radius: 2px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+            font-weight: 40px;
+            border-color: rgb(16, 16, 239);
+            color: rgb(0, 0, 255);
+            background-color: rgba(253, 252, 252, 0.4);
+            cursor: pointer;
+        }
+        .btn:hover{
+            background-color: rgb(0, 204, 255);
+            color: white;
+            text-transform: capitalize;
+            box-shadow: 2px 2px 10px rgb(0, 204, 255);
+            border-color: aqua;
+            transition: all 0.3s;
+        }
+        #output{
+            display: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 3rem;
+            font-weight: 100px;
+            color: rgb(8, 20, 238);
+            padding-top: 10px;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 30%;
+            left: 50%;
+            letter-spacing: 2px;
+            word-spacing: 4px;
+            text-shadow: 3px 3px 3px black;
+        }
+    </style>
+</head>
+<body>
+    <div class="conatiner">
+        <div class="heading font-effect-outline" >
+            <h1>AGE CALCULATOR & VALIDATION</h1>
+        </div>
+        <div class="verification-box">
+            <div class="box">
+                <label for="age" id="label-text">Enter your age</label>
+                <input type="date"  id="age" required autocomplete="off">
+            </div>
+          <button type="button" onclick="calculateAge()" class="btn">Calculate</button>
+          <button type="button" onclick="validateAge()" class="btn">Validate</button>
+        </div>
+        <div id="output">
+            
+        </div>
+    </div>
+    <script>
+        var age ;
+        let calculateAge=()=>{
+            let res = document.getElementById("age");
+            let val = res.value;
+            const arr1 = val.split("-");
+            age = 2022 - arr1[0];
+             res2 = document.getElementById("output");
+            res2.style.display = 'block';
+            if(val==""){
+                res2.innerHTML='<p>Please enter your age first</p>';
+            }
+            else if(age<0){
+                res2.innerHTML = '<p>You are less than 1 year '
+            }
+            else{
+            res2.innerHTML=`<p>Your Age is ${age}<p>`;
+            }
+        }
+        let validateAge=()=>{
+            res3 = document.getElementById("output");
+            if(age<=0 || age>140){
+               res3.innerHTML='<p>Invalid Age</p>';
+            }
+            else if(age<18 && age> 0){
+                res3.innerHTML='<p>Not Valid for voting and driving </p>';
+            }
+            else if(age>=18 && age<60){
+                res3.innerHTML='<p>Valid for Both Voting and Driving</p>';
+            }
+            else{
+                res3.innerHTML='<p>Valid for Voting /But not for Driving</p>';
+            }
+        }
+
+    </script>
+</body>
+</html>
