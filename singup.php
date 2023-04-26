@@ -107,7 +107,7 @@ session_start();
 $host = "localhost";
 $user = "root";
 $password = "";
-$database = "login";
+$database = "userregistration";
 $con = mysqli_connect($host,$user,$password,$database);
             $error=$error2 = " ";
           if(isset($_POST['submit'])){
@@ -120,7 +120,7 @@ $con = mysqli_connect($host,$user,$password,$database);
             $pass = password_hash($password, PASSWORD_BCRYPT);
             $Cpass = password_hash($Cpassword, PASSWORD_BCRYPT);
 
-            $sql = " select * from register where email = '$email' ";
+            $sql = " select * from usersignup where email = '$email' ";
             $query = mysqli_query($con,$sql);
             $email_count = mysqli_num_rows($query);
             if($email_count>0){
@@ -128,9 +128,9 @@ $con = mysqli_connect($host,$user,$password,$database);
             }
             else{
                 if($password === $Cpassword){
-                    $insert_query = " insert into register(firstname,lastname,email,password,confirmpassword)values('$Fname','$Lname','$email','$pass','$Cpass') ";
+                    $insert_query = " insert into usersignup(firstname,lastname,email,password,confirmpassword)values('$Fname','$Lname','$email','$pass','$Cpass') ";
                     mysqli_query($con,$insert_query);
-                    header("location:website.php");
+                    header("location:index.html");
                 }
                 else{
                     $error2 = "password doesnot match";
