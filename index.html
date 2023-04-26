@@ -475,7 +475,24 @@
         })
      </script>
 
-    
+     <script>
+        let btn = document.querySelectorAll('[data-download]');
+        btn.forEach(button=>{
+            let data = button.dataset.download;
+            let a = document.createElement('a');
+            a.href = data;
+            a.download = "";
+            a.style.display='none';
+
+            button.addEventListener('click',()=>{
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            });
+        });
+
+
+     </script>
 
 </body>
 </html>
