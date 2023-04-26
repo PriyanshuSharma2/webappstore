@@ -276,6 +276,45 @@
         background-color: rgb(56, 248, 56);
         box-shadow: 1px 1px 1px rgb(56, 248, 56);;
       }
+          font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        text-transform: capitalize;
+        padding: 1rem;
+        text-align:left;
+        word-wrap: break-word;
+      }
+      .section3 p{
+        cursor: pointer;
+        font-size: 1.2rem;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        padding: 0.8rem;
+        text-align: center;
+        text-transform: capitalize;
+        word-break: break-all;
+      }
+      .section3 h4:hover{
+        color: rgb(176, 13, 13);
+      }
+          .section3-inside{
+        width: 100%;
+        height: 100%;
+        display: grid;
+        padding: 4rem 2rem;
+        column-gap: 2rem;
+        grid-template-columns: repeat(auto-fit ,minmax(300px,1fr));
+        grid-template-rows: repeat(auto-fit);
+        row-gap: 2rem;
+      }
+      .section3 h1{
+        text-transform: capitalize;
+            font-size: 2rem;
+            width: 70%;
+            color: aliceblue;
+            padding-top: 2rem;
+            padding-left: 2rem;
+      }
     </style>
 </head>
 <body>
@@ -434,7 +473,105 @@
         <a name="section3"></a>
 
         <div class="section3">
-            
+            <h1>our recommended books</h1>
+
+            <div class="section3-inside">
+                <div class="card">
+
+                    <div class="card-img">
+                    <img src="/automataImage.png" alt="">
+                    </div>
+
+                    <h4>Theory of computer science</h4>
+                    <p>by klp mishra,n.charaskeran</p>
+
+                    <button class="card-btn" type="button" data-download="toc-klp-mishra Bookl.pdf">download</button>
+
+                </div>
+                <div class="card" onclick="location.href='CpFirstAidBook.pdf'">
+
+                    <div class="card-img">
+                    <img src="/cpFirstAidBook.jpg" alt="">
+                    </div>
+
+                    <h4>cpr and first aid</h4>
+                    <p>by dr. karl disuqe</p>
+                    <button class="card-btn" type="button" data-download="CpFirstAidBook.pdf">download</button>
+
+                </div>
+                <div class="card">
+
+                    <div class="card-img">
+                    <img src="/getingRich.jpg" alt="">
+                    </div>
+
+                    <h4>the science of getting rich</h4>
+                    <p>by wallace d.wattles</p>
+
+                    <button class="card-btn" type="button" data-download="TheScienceOfGettingRichWattlesBook.pdf">download</button>
+
+                </div>
+                <div class="card">
+
+                    <div class="card-img">
+                    <img src="/languageBookImage.jpg" alt="">
+                    </div>
+
+                    <h4>java c c++ python js php linux for beginners</h4>
+                    <p>by manjunath.r</p>
+
+                    <button class="card-btn" type="button" data-download="beginnersGuideCJava.pdf">download</button>
+
+                </div>
+                <div class="card">
+
+                    <div class="card-img">
+                    <img src="/godBookImage.jpg" alt="">
+                    </div>
+
+                    <h4>god</h4>
+                    <p>by manjunath.r</p>
+
+                    <button class="card-btn" type="button" data-download="GoodManjunathBook.pdf">download</button>
+
+                </div>
+                <div class="card">
+
+                    <div class="card-img">
+                    <img src="/DBMSImage.png" alt="">
+                    </div>
+
+                    <h4>database mangement system</h4>
+                    <p>by navathe and elmasri</p>
+
+                    <button class="card-btn" type="button" data-download="dbms.pdf">download</button>
+
+                </div>
+                <div class="card">
+
+                    <div class="card-img">
+                    <img src="/lovedtodeath.jpg" alt="">
+                    </div>
+
+                    <h4>Love to death</h4>
+                    <p>by peter c byrnes</p>
+
+                    <button class="card-btn" type="button" data-download="lovetodeath.pdf">download</button>
+
+                </div>
+                <div class="card">
+
+                    <div class="card-img">
+                    <img src="/Pankaj Jalote SE.png" alt="">
+                    </div>
+
+            <h4>a concise introduction to software engineering</h4>
+            <p>by pankaj jalote</p>
+
+                    <button class="card-btn" type="button" data-download="Pankaj Jalote book.pdf">download</button>
+
+                </div>
+            </div>
         </div>
 
         <a name="section4"></a>
