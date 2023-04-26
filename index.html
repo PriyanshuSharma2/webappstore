@@ -318,6 +318,55 @@
       .section3 h4:hover{
         color: rgb(176, 13, 13);
       }
+        .section4-inside{
+        width: 100%;
+        height: 100%;
+        display: grid;
+        padding: 4rem 2rem;
+        column-gap: 2rem;
+        grid-template-columns: repeat(auto-fit ,minmax(300px,1fr));
+        grid-template-rows: repeat(auto-fit);
+        row-gap: 2rem;
+      }
+      .section4 h1{
+        text-transform: capitalize;
+            font-size: 2rem;
+            width: 70%;
+            color: aliceblue;
+            padding-top: 2rem;
+            padding-left: 2rem;
+      }
+      .section4 h4{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        text-transform: capitalize;
+        padding: 1rem;
+        text-align:left;
+        word-wrap: break-word;
+      }
+      .section4 p{
+        cursor: pointer;
+        font-size: 1.2rem;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        padding: 0.8rem;
+        text-align: center;
+        text-transform: capitalize;
+        word-break: break-all;
+      }
+      .section4 .card{
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        align-items: center;
+        border-radius: 1rem;
+        border: 2px solid black;
+        background-color: rgb(211, 233, 254);
+        cursor: pointer;
+        transition: transform 0.5s;
+        gap: 1rem;
+      }
         @media (max-width:500px) {
         .left-section-navbar img{
             width: 4rem;
