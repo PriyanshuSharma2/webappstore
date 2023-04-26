@@ -110,6 +110,9 @@
             width: 8rem;
         }
         .middle-section-navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
            
         }
         .middle-section-navbar ul{
@@ -189,7 +192,7 @@
       }
       .section3{
         width: 100%;
-        height: 47rem;
+        min-height: 47rem;
         background-color: rgb(196, 32, 237);
       }
       .section4{
@@ -275,7 +278,26 @@
         background-color: rgb(56, 248, 56);
         box-shadow: 1px 1px 1px rgb(56, 248, 56);;
       }
-          font-family: Arial, Helvetica, sans-serif;
+      .section3-inside{
+        width: 100%;
+        height: 100%;
+        display: grid;
+        padding: 4rem 2rem;
+        column-gap: 2rem;
+        grid-template-columns: repeat(auto-fit ,minmax(300px,1fr));
+        grid-template-rows: repeat(auto-fit);
+        row-gap: 2rem;
+      }
+      .section3 h1{
+        text-transform: capitalize;
+            font-size: 2rem;
+            width: 70%;
+            color: aliceblue;
+            padding-top: 2rem;
+            padding-left: 2rem;
+      }
+      .section3 h4{
+        font-family: Arial, Helvetica, sans-serif;
         font-size: 1.5rem;
         margin-top: 1rem;
         text-transform: capitalize;
@@ -295,24 +317,6 @@
       }
       .section3 h4:hover{
         color: rgb(176, 13, 13);
-      }
-          .section3-inside{
-        width: 100%;
-        height: 100%;
-        display: grid;
-        padding: 4rem 2rem;
-        column-gap: 2rem;
-        grid-template-columns: repeat(auto-fit ,minmax(300px,1fr));
-        grid-template-rows: repeat(auto-fit);
-        row-gap: 2rem;
-      }
-      .section3 h1{
-        text-transform: capitalize;
-            font-size: 2rem;
-            width: 70%;
-            color: aliceblue;
-            padding-top: 2rem;
-            padding-left: 2rem;
       }
     </style>
 </head>
@@ -334,7 +338,7 @@
                 </ul>
             </div>
             <div class="right-secton-navbar">
-                <button class="reg-btn"  onclick="location.href='login.html'">login</button>
+                <button class="reg-btn">login</button>
                 <button class="reg-btn" onclick="location.href='./singup.php'">sign-in</button>
             </div>
         </div>
@@ -383,7 +387,7 @@
                     <h4>calculator app</h4>
 
                     <a href="/calculator.html" target="_blank"><p>Having problem in calculation?Click me</p></a>
-                    <button class="card-btn" type="button" data-download="calculator.html">download</button>
+                    <button class="card-btn" type="button" data-download="/calc">download</button>
 
                 </div>
 
@@ -396,7 +400,7 @@
                     <h4>unit convetor</h4>
 
                     <a href="/unitConvertor.html"><p>I can convert different units for you?Click me</p></a>
-                    <button class="card-btn" type="button" data-download="unitConvertor.html">download</button>
+                    <button class="card-btn" type="button" data-download="/unit (2).zip">download</button>
 
                 </div>
 
