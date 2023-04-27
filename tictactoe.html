@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(232, 184, 242);
+}
+
+.players{
+    border: 2px solid #0909ad;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 24px;
+    margin-top: 100px;
+}
+.players div{
+    padding: 15px 25px;
+    border-radius: 15px;
+    border: 2px solid #fff;
+
+}
+.players div.active{
+    background: #0909ad;
+    color:#fff;
+}
+
+.game-board{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+}
+.cell{
+    height: 100px;
+    width: 100px;
+    border: 2px solid #0909ad;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.cell.X{
+    color: #09aecb;
+}
+.cell.O{
+    color:#e50c35;
+}
+.cell:nth-child(1),.cell:nth-child(2),.cell:nth-child(3){
+    border-top: none;
+}
+.cell:nth-child(3n+1){
+    border-left: none;
+}
+.cell:nth-child(3n){
+    border-right: none;
+}
+.cell:nth-child(7),.cell:nth-child(8),.cell:nth-child(9){
+    border-bottom: none;
+}
+
+.result{
+    position: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.result h1{
+    color:#fff;
+    font-size: 50px;
+    background-color: rgba(0,0,100,0.5);
+    padding: 15px 25px;
+}
+.result button{
+    font-size: 36px;
+    background: #0909ad;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px 25px;
+}
+.inactive{
+    display: none;
+}
+.disabled{
+    pointer-events: none;
+}
+
+    </style>
+</head>
+<body>
+    <div class="players">
+        <div class="player1 active">O's Turn</div>
+        <div class="player2 ">X's Turn</div>
+    </div>
+
+    <div class="game-board">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+    </div>
+    <div class="result inactive">
+        <h1>0 Win The Game</h1>
+        <button>Restart</button>
+    </div>
+
+    <script >
+        const cellElements = document.querySelectorAll(".game-board .cell");
+const player1 = document.querySelector(".players .player1");
+const player2 = document.querySelector(".players .player2");
+const result = document.querySelector(".result");
+const result_text = document.querySelector(".result h1");
+const restart_btn = document.querySelector(".result button");
+
+
+const WINNING_CONDITIONS = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+ ]
+
+const playerO = "O";
+const playerX = "X";
+let toggleTurn = true;
+cellElements.forEach(cell => {
+    cell.onclick = () => {
+      let currentPlayer = toggleTurn ? playerO : playerX;
+       cell.classList.add("disabled");
+       
+    addInCell(cell, currentPlayer);
+
+    if (winnerCheck(currentPlayer)) {
+
+        addInactive();
+        result_text.innerText = currentPlayer + " Win the Game";
+    }else if (isDraw()) {
+        // Draw the Game!
+        addInactive();
+        result_text.innerText = "Draw the Game!";
+    }
+    else {
+        swapPlayer();
+     }
+    }
+});
+
+//Winner Check Function
+function winnerCheck(currentPlayer) {
+    return WINNING_CONDITIONS.some(conditon => {
+       return conditon.every(index => {
+          return cellElements[index].classList.contains(currentPlayer);
+       });
+    })
+ }
+
+//Game Draw condition checking function
+ function isDraw() {
+    return [...cellElements].every(cell => {
+       return cell.classList.contains(playerX) || cell.classList.contains(playerO);
+    })
+ }
+function swapPlayer() {
+    toggleTurn = !toggleTurn;
+    if (toggleTurn) {
+        player1.classList.add("active");
+        player2.classList.remove("active");
+     } else {
+        player2.classList.add("active");
+        player1.classList.remove("active");
+     }
+}
+
+
+function addInCell(cell, currentPlayer) {
+    cell.innerHTML = currentPlayer;
+    cell.classList.add(currentPlayer);
+ } 
+
+ function addInactive() {
+    result.classList.remove("inactive");
+ }
+ restart_btn.onclick = () => {
+    location.reload();
+ }
+    </script>
+</body>
+</html>
