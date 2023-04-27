@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Web App Store</title>
+    <link rel="icon" type="image/x-icon" href="/web app store-logos_black.png">
     <style>
          *{
             margin: 0px;
@@ -201,12 +202,6 @@
         background-color: rgb(237, 32, 97);
         display: flex;
       }
-      .section5{
-        width: 100%;
-        height: 47rem;
-        background-color: rgb(237, 114, 32);
-        display: flex;
-      }
       .card{
         display: flex;
         flex-direction: column;
@@ -315,10 +310,7 @@
         text-transform: capitalize;
         word-break: break-all;
       }
-      .section3 h4:hover{
-        color: rgb(176, 13, 13);
-      }
-        .section4-inside{
+      .section4-inside{
         width: 100%;
         height: 100%;
         display: grid;
@@ -367,7 +359,49 @@
         transition: transform 0.5s;
         gap: 1rem;
       }
-        @media (max-width:500px) {
+      .section3 h4:hover{
+        color: rgb(176, 13, 13);
+      }
+      .section5{
+        padding: 5rem;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+      }
+      .card-dev{
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        align-items: center;
+        border-radius: 1rem;
+        background-color: white;
+        cursor: pointer;
+        transition: transform 0.5s;
+      }
+     .card-dev h4{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 2rem;
+        padding: 1rem;
+        text-transform: capitalize;
+     }
+     .card-dev p{
+        text-align: left;
+        word-break: break-all;
+        font-size: 1.5rem;
+        padding: 0.1rem 1rem;
+        color: #011114;
+        text-transform: capitalize;
+        
+     }
+     .card-dev:hover{
+        background-color: #05cefb;
+        box-shadow: 5px 5px 5px aqua;
+        transform: translateY(-7px);
+     }
+      @media (max-width:500px) {
         .left-section-navbar img{
             width: 4rem;
         }
@@ -405,8 +439,8 @@
                 <ul>
                     <li><a href="#section1">home</a></li>
                     <li><a href="#section">apps</a></li>
-                    <li><a href="#section3">games</a></li>
-                    <li><a href="#section4">books</a></li>
+                    <li><a href="#section4">games</a></li>
+                    <li><a href="#section3">books</a></li>
                     <li><a href="#section5">developer</a></li>
                 </ul>
             </div>
@@ -512,7 +546,7 @@
                     <h4>age validation
                     </h4>
 
-                    <a href="/agevalidation.html"><p>Are you eligible for voting and driving? Verify your age</p></a>
+                    <a href="/ht.html"><p>Are you eligible for voting and driving? Verify your age</p></a>
                     <button class="card-btn" type="button" data-download="agevalidation.html">download</button>
 
                 </div>
@@ -538,7 +572,7 @@
 
                     <h4>Quiz app</h4>
 
-                    <a href="/quiz.html"><p>want to Play quiz?Click me</p></a>
+                    <p>Want to know wheather?Click me</p>
                     <button class="card-btn" type="button" data-download="">download</button>
 
                 </div>
@@ -564,7 +598,7 @@
                     <button class="card-btn" type="button" data-download="toc-klp-mishra Bookl.pdf">download</button>
 
                 </div>
-                <div cquiz.htmllass="card" onclick="location.href='CpFirstAidBook.pdf'">
+                <div class="card" onclick="location.href='CpFirstAidBook.pdf'">
 
                     <div class="card-img">
                     <img src="/cpFirstAidBook.jpg" alt="">
@@ -651,11 +685,11 @@
         </div>
 
         <a name="section4"></a>
-
-       <div class="section">
+        
+        <div class="section">
             <h1>our games</h1>
             <div class="section4-inside">
-                <div class="card" onclick="location.href=''">
+                <div class="card" onclick="location.href='/snake.html'">
 
                     <div class="card-img">
                     <img src="/snake.jpg" alt="">
@@ -663,7 +697,7 @@
                     </div>
 
                     <h4>snakez</h4>
-                    <button class="card-btn" type="button" data-download="lovetodeath.pdf">download</button>
+                    <button class="card-btn" type="button" data-download="snake.html">download</button>
                 </div>
                 <div class="card" onclick="location.href=''">
 
@@ -721,11 +755,40 @@
         </div>
 
         <a name="section5"></a>
+        <div class="section">
+            <h1>our developers</h1>
+            <div class="section5">
 
-        <div class="section5">
-            
+                <div class="card-dev">
+                    <div class="card-img">
+                    <img src="/IMG_20220330_164829_871.jpg">
+                </div>
+                <div>
+                    <h4>priyanshu sharma</h4>
+                <p>ui design</p>
+                <p>login system</p>
+                <p>calculator,age validation,unit convertor</p>
+                <p>resposnive</p>
+                </div>
+                </div>
+                <div class="card-dev">
+                    <div class="card-img">
+                    <img src="/WhatsApp Image 2023-04-27 at 08.20.06.jpg">
+                </div>
+               <div>
+                <h4>trashar varshney</h4>
+                
+                <p>weather,quiz</p>
+                <p>game(snake,tic tac toe)</p>
+                <p>presententaion</p>
+                <p>leader</p>
+               </div>
+                </div>
+
+            </div>
         </div>
 
+        
     </div>
 
     <script>
